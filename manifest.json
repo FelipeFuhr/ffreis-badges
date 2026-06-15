@@ -1,0 +1,678 @@
+{
+  "owner": "FelipeFuhr",
+  "repos": [
+    {
+      "name": ".github",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": false
+    },
+    {
+      "name": "ffreis-agents-runtime",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ai-lambdas-rust",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "AGPL-3.0",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-app-platform",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-articles",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-badges",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": false,
+      "ci_workflow": "refresh.yml"
+    },
+    {
+      "name": "ffreis-ci-runners-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-claude-config",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": false
+    },
+    {
+      "name": "ffreis-claude-skills",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": false
+    },
+    {
+      "name": "ffreis-courses",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-dashboard",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": false
+    },
+    {
+      "name": "ffreis-dashboard-lambdas-rust",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-dynamoctl",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-feature-flags",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-flemming-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-go-shared",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-graded-reader",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-graded-reader-web",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": false
+    },
+    {
+      "name": "ffreis-infrastructure",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-integration-hub",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-k3s-vagrant",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-k8s-vagrant",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-kb",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-lambdas-go-website",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-lambdas-packer",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-latex-compiler",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "AGPL-3.0",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-mlflow",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": false
+    },
+    {
+      "name": "ffreis-platform-atlantis",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-awsfakes",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-bootstrap",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-ci-local",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": false
+    },
+    {
+      "name": "ffreis-platform-cli",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-configctl",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-dashboard-data-go",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-dashboard-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-github-oidc",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-go-analyzers",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-guardian",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-inventory",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-monitor-lambda",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-orchestrator",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-org",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-project-template",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-runner",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-shared-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-standards",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-platform-uxstoryteller-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-posts",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-project-templates",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-projects",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-python-model-serving",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-python-onnx-model-converter",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-python-shared",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-quality-kit",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-resume",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-runner-comparison",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-rust-onnx-model-serving",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-rust-shared",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-siteops",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-snippets",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-stock-simulator",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-stock-simulator-dashboard-go",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-tracker-sdk",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-uxstoryteller",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-compiler",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-data",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-deployer",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-inventory",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-kb",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-lambdas-rust",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-website-packer",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflow-ai-standardizer",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-ai",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-bindings",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-container",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-general",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-go",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-kotlin",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-python",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-rust",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-swift",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-terraform",
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-workflows-website",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "flemming-data",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "flemming-kb",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "flemming-website",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "petlook-data",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "petlook-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "petlook-kb-ask",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "petlook-kb-imagegen",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "petlook-lambdas-rust",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "petlook-mobile",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "none",
+      "has_sonar": true
+    },
+    {
+      "name": "petlook-website",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    },
+    {
+      "name": "stock-rl-agent",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "MIT",
+      "has_sonar": true
+    }
+  ]
+}

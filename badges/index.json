@@ -1,0 +1,11 @@
+{
+  "repos": [
+    {
+      "name": "ffreis-badges",
+      "visibility": "public",
+      "ci": "no runs",
+      "version": "-",
+      "license": "Proprietary"
+    }
+  ]
+}
