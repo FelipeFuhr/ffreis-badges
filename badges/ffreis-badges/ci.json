@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "CI",
-  "message": "no runs",
-  "color": "lightgrey"
+  "message": "running",
+  "color": "blue"
 }
