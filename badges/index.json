@@ -221,7 +221,7 @@
       "name": "ffreis-platform-cli",
       "visibility": "public",
       "ci": "failure",
-      "version": "v0.1.0",
+      "version": "v0.2.0",
       "license": "MIT"
     },
     {
