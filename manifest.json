@@ -164,6 +164,13 @@
       "has_sonar": true
     },
     {
+      "name": "ffreis-kube-platform",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": false
+    },
+    {
       "name": "ffreis-lambdas-go-website",
       "visibility": "private",
       "default_branch": "main",
@@ -182,6 +189,90 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "AGPL-3.0",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-core",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-crypto-env",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-crypto-rl",
+      "visibility": "private",
+      "default_branch": "develop",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-data",
+      "visibility": "private",
+      "default_branch": "feat/p1-3-dataset-versioning-dvc",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-examples",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-features",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-hpo",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-monitoring",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-pipelines",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-registry",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-tracking",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
+      "has_sonar": true
+    },
+    {
+      "name": "ffreis-ml-train",
+      "visibility": "private",
+      "default_branch": "main",
+      "license": "Proprietary",
       "has_sonar": true
     },
     {
