@@ -38,7 +38,7 @@
     {
       "name": "ffreis-badges",
       "visibility": "public",
-      "ci": "running",
+      "ci": "success",
       "version": "-",
       "license": "Proprietary"
     },
@@ -162,6 +162,13 @@
       "license": "MIT"
     },
     {
+      "name": "ffreis-kube-platform",
+      "visibility": "private",
+      "ci": "failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
       "name": "ffreis-lambdas-go-website",
       "visibility": "private",
       "ci": "failure",
@@ -181,6 +188,90 @@
       "ci": "startup failure",
       "version": "-",
       "license": "AGPL-3.0"
+    },
+    {
+      "name": "ffreis-ml-core",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-crypto-env",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-crypto-rl",
+      "visibility": "private",
+      "ci": "no runs",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-data",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-examples",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-features",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-hpo",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-monitoring",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-pipelines",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-registry",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-tracking",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
+    },
+    {
+      "name": "ffreis-ml-train",
+      "visibility": "private",
+      "ci": "startup failure",
+      "version": "-",
+      "license": "Proprietary"
     },
     {
       "name": "ffreis-mlflow",
