@@ -95,7 +95,7 @@
       "name": "ffreis-feature-flags",
       "visibility": "private",
       "ci": "failure",
-      "version": "v0.1.0",
+      "version": "v0.2.0",
       "license": "Proprietary"
     },
     {
