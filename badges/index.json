@@ -127,13 +127,6 @@
       "license": "none"
     },
     {
-      "name": "ffreis-infrastructure",
-      "visibility": "private",
-      "ci": "no runs",
-      "version": "-",
-      "license": "none"
-    },
-    {
       "name": "ffreis-integration-hub",
       "visibility": "public",
       "ci": "no runs",
@@ -188,13 +181,6 @@
       "ci": "startup failure",
       "version": "-",
       "license": "AGPL-3.0"
-    },
-    {
-      "name": "ffreis-ml-core",
-      "visibility": "private",
-      "ci": "startup failure",
-      "version": "-",
-      "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-crypto-env",
