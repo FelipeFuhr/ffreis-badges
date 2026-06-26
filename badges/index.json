@@ -529,7 +529,7 @@
       "name": "ffreis-tracker-sdk",
       "visibility": "private",
       "ci": "failure",
-      "version": "-",
+      "version": "v1.1.0",
       "license": "none"
     },
     {
