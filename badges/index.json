@@ -549,7 +549,7 @@
     {
       "name": "ffreis-website-compiler",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
@@ -634,7 +634,7 @@
       "name": "ffreis-workflows-general",
       "visibility": "public",
       "ci": "no runs",
-      "version": "v1.7.0",
+      "version": "v1.7.1",
       "license": "Proprietary"
     },
     {
