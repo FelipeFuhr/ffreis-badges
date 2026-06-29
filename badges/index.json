@@ -192,14 +192,14 @@
     {
       "name": "ffreis-ml-core",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-crypto-env",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
@@ -220,56 +220,56 @@
     {
       "name": "ffreis-ml-examples",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-features",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-hpo",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-monitoring",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-pipelines",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-registry",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-tracking",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-train",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
@@ -655,7 +655,7 @@
       "name": "ffreis-workflows-python",
       "visibility": "public",
       "ci": "no runs",
-      "version": "v1.1.1",
+      "version": "v1.3.0",
       "license": "MIT"
     },
     {
