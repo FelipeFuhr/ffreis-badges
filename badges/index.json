@@ -386,13 +386,6 @@
       "license": "MIT"
     },
     {
-      "name": "ffreis-platform-project-template",
-      "visibility": "public",
-      "ci": "failure",
-      "version": "-",
-      "license": "MIT"
-    },
-    {
       "name": "ffreis-platform-runner",
       "visibility": "public",
       "ci": "failure",
