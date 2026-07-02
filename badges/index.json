@@ -410,7 +410,7 @@
       "name": "ffreis-platform-standards",
       "visibility": "public",
       "ci": "no runs",
-      "version": "v1.7.2",
+      "version": "v1.7.3",
       "license": "MIT"
     },
     {
