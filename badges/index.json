@@ -701,25 +701,11 @@
       "license": "none"
     },
     {
-      "name": "flemming-website",
-      "visibility": "private",
-      "ci": "failure",
-      "version": "-",
-      "license": "none"
-    },
-    {
       "name": "petlook-data",
       "visibility": "private",
       "ci": "failure",
       "version": "-",
       "license": "none"
-    },
-    {
-      "name": "petlook-infra",
-      "visibility": "private",
-      "ci": "no runs",
-      "version": "-",
-      "license": "MIT"
     },
     {
       "name": "petlook-kb-ask",
