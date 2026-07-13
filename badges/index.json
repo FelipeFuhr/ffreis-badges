@@ -549,7 +549,7 @@
     {
       "name": "ffreis-website-compiler",
       "visibility": "public",
-      "ci": "success",
+      "ci": "failure",
       "version": "-",
       "license": "MIT"
     },
