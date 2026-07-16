@@ -10,28 +10,28 @@
     {
       "name": "ffreis-agents-runtime",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-ai-lambdas-rust",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "AGPL-3.0"
     },
     {
       "name": "ffreis-app-platform",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-articles",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -45,14 +45,14 @@
     {
       "name": "ffreis-ci-runners-infra",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "ffreis-claude-config",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
@@ -66,7 +66,7 @@
     {
       "name": "ffreis-courses",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -80,7 +80,7 @@
     {
       "name": "ffreis-dashboard-lambdas-rust",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -94,35 +94,35 @@
     {
       "name": "ffreis-feature-flags",
       "visibility": "private",
-      "ci": "failure",
-      "version": "v0.2.0",
+      "ci": "no runs",
+      "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-flemming-infra",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-go-shared",
       "visibility": "private",
-      "ci": "failure",
-      "version": "v0.1.0",
+      "ci": "no runs",
+      "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-graded-reader",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "ffreis-graded-reader-web",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
@@ -164,14 +164,14 @@
     {
       "name": "ffreis-kube-platform",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-lambdas-go-website",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -192,14 +192,14 @@
     {
       "name": "ffreis-ml-core",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-crypto-env",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
@@ -213,63 +213,63 @@
     {
       "name": "ffreis-ml-data",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-examples",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-features",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-hpo",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-monitoring",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-pipelines",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-registry",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-tracking",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "ffreis-ml-train",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
@@ -283,7 +283,7 @@
     {
       "name": "ffreis-platform-atlantis",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
@@ -325,21 +325,21 @@
     {
       "name": "ffreis-platform-dashboard-data-go",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-platform-dashboard-infra",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-platform-github-oidc",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -360,7 +360,7 @@
     {
       "name": "ffreis-platform-inventory",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -402,7 +402,7 @@
     {
       "name": "ffreis-platform-shared-infra",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -423,21 +423,21 @@
     {
       "name": "ffreis-posts",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-project-templates",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-projects",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
@@ -458,21 +458,21 @@
     {
       "name": "ffreis-python-shared",
       "visibility": "private",
-      "ci": "failure",
-      "version": "v0.2.0",
+      "ci": "no runs",
+      "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-quality-kit",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-resume",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -493,8 +493,8 @@
     {
       "name": "ffreis-rust-shared",
       "visibility": "private",
-      "ci": "failure",
-      "version": "v0.7.0",
+      "ci": "no runs",
+      "version": "-",
       "license": "MIT"
     },
     {
@@ -507,7 +507,7 @@
     {
       "name": "ffreis-snippets",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -528,14 +528,14 @@
     {
       "name": "ffreis-tracker-sdk",
       "visibility": "private",
-      "ci": "failure",
-      "version": "v1.1.0",
+      "ci": "no runs",
+      "version": "-",
       "license": "none"
     },
     {
       "name": "ffreis-uxstoryteller",
       "visibility": "private",
-      "ci": "startup failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -556,7 +556,7 @@
     {
       "name": "ffreis-website-data",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -577,21 +577,21 @@
     {
       "name": "ffreis-website-inventory",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-website-kb",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "ffreis-website-lambdas-rust",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
@@ -619,7 +619,7 @@
     {
       "name": "ffreis-workflows-bindings",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "Proprietary"
     },
@@ -683,34 +683,34 @@
       "name": "ffreis-workflows-website",
       "visibility": "private",
       "ci": "no runs",
-      "version": "v1.0.0",
+      "version": "-",
       "license": "Proprietary"
     },
     {
       "name": "flemming-data",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "flemming-kb",
       "visibility": "private",
-      "ci": "failure",
-      "version": "v1.0.0",
+      "ci": "no runs",
+      "version": "-",
       "license": "none"
     },
     {
       "name": "flemming-website",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "petlook-data",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
@@ -724,42 +724,42 @@
     {
       "name": "petlook-kb-ask",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "petlook-kb-imagegen",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "petlook-lambdas-rust",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "petlook-mobile",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "none"
     },
     {
       "name": "petlook-website",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "stock-rl-agent",
       "visibility": "private",
-      "ci": "failure",
+      "ci": "no runs",
       "version": "-",
       "license": "MIT"
     }

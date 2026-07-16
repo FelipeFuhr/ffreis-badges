@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "CI",
-  "message": "startup failure",
-  "color": "red"
+  "message": "no runs",
+  "color": "lightgrey"
 }
