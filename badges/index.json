@@ -87,7 +87,7 @@
     {
       "name": "ffreis-dynamoctl",
       "visibility": "public",
-      "ci": "success",
+      "ci": "failure",
       "version": "-",
       "license": "MIT"
     },
@@ -395,7 +395,7 @@
     {
       "name": "ffreis-platform-runner",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "queued",
       "version": "-",
       "license": "MIT"
     },
@@ -487,7 +487,7 @@
       "name": "ffreis-rust-onnx-model-serving",
       "visibility": "public",
       "ci": "success",
-      "version": "v1.0.0",
+      "version": "v1.0.1",
       "license": "MIT"
     },
     {
@@ -598,7 +598,7 @@
     {
       "name": "ffreis-website-packer",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "queued",
       "version": "-",
       "license": "none"
     },
