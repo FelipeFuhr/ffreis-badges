@@ -87,7 +87,7 @@
     {
       "name": "ffreis-dynamoctl",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "startup failure",
       "version": "-",
       "license": "MIT"
     },
