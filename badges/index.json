@@ -395,7 +395,7 @@
     {
       "name": "ffreis-platform-runner",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "running",
       "version": "-",
       "license": "MIT"
     },
