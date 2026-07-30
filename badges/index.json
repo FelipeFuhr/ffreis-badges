@@ -374,7 +374,7 @@
     {
       "name": "ffreis-platform-orchestrator",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "running",
       "version": "-",
       "license": "MIT"
     },
@@ -395,7 +395,7 @@
     {
       "name": "ffreis-platform-runner",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "running",
       "version": "-",
       "license": "MIT"
     },
@@ -634,7 +634,7 @@
       "name": "ffreis-workflows-general",
       "visibility": "public",
       "ci": "no runs",
-      "version": "v1.7.1",
+      "version": "v1.8.1",
       "license": "Proprietary"
     },
     {
