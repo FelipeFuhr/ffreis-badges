@@ -312,7 +312,7 @@
       "name": "ffreis-platform-cli",
       "visibility": "public",
       "ci": "failure",
-      "version": "v0.3.1",
+      "version": "v0.3.2",
       "license": "MIT"
     },
     {
@@ -641,7 +641,7 @@
       "name": "ffreis-workflows-go",
       "visibility": "public",
       "ci": "no runs",
-      "version": "v1.1.2",
+      "version": "v1.2.0",
       "license": "Proprietary"
     },
     {
