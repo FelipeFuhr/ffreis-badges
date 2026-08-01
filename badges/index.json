@@ -87,7 +87,7 @@
     {
       "name": "ffreis-dynamoctl",
       "visibility": "public",
-      "ci": "startup failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
@@ -185,7 +185,7 @@
     {
       "name": "ffreis-latex-compiler",
       "visibility": "public",
-      "ci": "startup failure",
+      "ci": "success",
       "version": "-",
       "license": "AGPL-3.0"
     },
@@ -521,7 +521,7 @@
     {
       "name": "ffreis-stock-simulator-dashboard-go",
       "visibility": "public",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "Proprietary"
     },
@@ -627,7 +627,7 @@
       "name": "ffreis-workflows-container",
       "visibility": "public",
       "ci": "no runs",
-      "version": "-",
+      "version": "v1.0.0",
       "license": "Proprietary"
     },
     {
