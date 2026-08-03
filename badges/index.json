@@ -634,7 +634,7 @@
       "name": "ffreis-workflows-general",
       "visibility": "public",
       "ci": "no runs",
-      "version": "v1.9.0",
+      "version": "v1.9.1",
       "license": "Proprietary"
     },
     {
