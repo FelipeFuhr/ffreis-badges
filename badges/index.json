@@ -353,7 +353,7 @@
     {
       "name": "ffreis-platform-guardian",
       "visibility": "public",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "MIT"
     },
@@ -479,7 +479,7 @@
     {
       "name": "ffreis-runner-comparison",
       "visibility": "public",
-      "ci": "success",
+      "ci": "failure",
       "version": "-",
       "license": "MIT"
     },
