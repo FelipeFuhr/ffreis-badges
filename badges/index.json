@@ -498,13 +498,6 @@
       "license": "MIT"
     },
     {
-      "name": "ffreis-siteops",
-      "visibility": "public",
-      "ci": "startup failure",
-      "version": "-",
-      "license": "MIT"
-    },
-    {
       "name": "ffreis-snippets",
       "visibility": "private",
       "ci": "no runs",
