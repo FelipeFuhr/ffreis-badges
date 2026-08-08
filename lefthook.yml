@@ -1,0 +1,21 @@
+remotes:
+  - git_url: https://github.com/FelipeFuhr/ffreis-platform-standards
+    ref: v1.6.0
+    configs:
+      - lefthook/base.yml
+    # Deliberately NOT pulling in lefthook/python.yml's complex/release tiers
+    # here (see AGENTS.md "Judgment: right-sized CI, not full onboarding" —
+    # this repo is ~340 lines of stdlib-only glue with no mutation-testing
+    # infra). fmt-check/lint/coverage run via ci.yml instead.
+
+pre-commit:
+  commands:
+    fmt-check:
+      glob: "**/*.py"
+      run: make fmt-check
+
+pre-push:
+  parallel: false
+  commands:
+    quality-gates:
+      run: make quality-gates
