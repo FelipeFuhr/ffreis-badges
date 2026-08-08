@@ -6,6 +6,7 @@ default branch) live here; dynamic facts (CI result, version) are fetched live
 by refresh_badges.py. Regenerate when repos are added/removed or a license
 changes:  python3 scripts/gen_manifest.py /path/to/workspace /tmp/repos2.json
 """
+
 from __future__ import annotations
 
 import json
@@ -13,6 +14,8 @@ import os
 import re
 import subprocess
 import sys
+from collections.abc import Iterator
+from typing import Any
 
 # License tier detection from the first lines of a LICENSE file.
 LICENSE_PATTERNS = [
@@ -41,7 +44,8 @@ def remote_name(repo_dir: str) -> str | None:
     try:
         url = subprocess.check_output(
             ["git", "-C", repo_dir, "config", "--get", "remote.origin.url"],
-            text=True, stderr=subprocess.DEVNULL,
+            text=True,
+            stderr=subprocess.DEVNULL,
         ).strip()
     except subprocess.CalledProcessError:
         return None
@@ -50,7 +54,7 @@ def remote_name(repo_dir: str) -> str | None:
     return os.path.basename(url[:-4] if url.endswith(".git") else url)
 
 
-def iter_repos(root: str):
+def iter_repos(root: str) -> Iterator[str]:
     for dirpath, dirnames, _ in os.walk(root):
         rel = os.path.relpath(dirpath, root)
         if rel != "." and (rel + "/").startswith(SKIP_PREFIXES):
@@ -75,7 +79,7 @@ def main() -> int:
                 "default_branch": (r.get("defaultBranchRef") or {}).get("name") or "main",
             }
 
-    repos: dict[str, dict] = {}
+    repos: dict[str, dict[str, Any]] = {}
     for repo_dir in iter_repos(root):
         name = remote_name(repo_dir)
         if not name or name not in gh:

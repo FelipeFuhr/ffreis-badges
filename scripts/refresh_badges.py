@@ -14,6 +14,7 @@ has `repo` scope so it can read private repos' Actions runs and releases.
 Each badge file is the shields.io endpoint schema:
     {"schemaVersion":1,"label":"...","message":"...","color":"..."}
 """
+
 from __future__ import annotations
 
 import argparse
@@ -23,15 +24,23 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from typing import Any
 
 API = "https://api.github.com"
 
 # Primary CI workflow detection: first present (by filename) that has runs on the
 # default branch wins. Override per repo via manifest "ci_workflow".
 CI_WORKFLOW_PRIORITY = [
-    "ci.yml", "devops-go-ci.yml", "tests.yml", "test.yml",
-    "go-test.yml", "rust-test.yml", "python-test.yml",
-    "build-all.yml", "android-ci.yml", "deploy.yml",
+    "ci.yml",
+    "devops-go-ci.yml",
+    "tests.yml",
+    "test.yml",
+    "go-test.yml",
+    "rust-test.yml",
+    "python-test.yml",
+    "build-all.yml",
+    "android-ci.yml",
+    "deploy.yml",
 ]
 
 CONCLUSION_COLOR = {
@@ -54,8 +63,8 @@ LICENSE_BADGE = {
 }
 
 
-def gh(path: str, token: str):
-    """GET the GitHub API; return parsed JSON, or None on 404."""
+def gh(path: str, token: str) -> Any:
+    """GET the GitHub API; return parsed JSON (dict or list), or None on 404."""
     req = urllib.request.Request(API + path)
     req.add_header("Accept", "application/vnd.github+json")
     req.add_header("X-GitHub-Api-Version", "2022-11-28")
@@ -75,15 +84,16 @@ def gh(path: str, token: str):
     return None
 
 
-def detect_ci_workflow(owner: str, repo: str, default_branch: str, token: str, override: str | None):
+def detect_ci_workflow(
+    owner: str, repo: str, default_branch: str, token: str, override: str | None
+) -> tuple[str | None, dict[str, Any] | None]:
     candidates = [override] if override else []
     listing = gh(f"/repos/{owner}/{repo}/actions/workflows?per_page=100", token) or {}
     present = {os.path.basename(w["path"]) for w in listing.get("workflows", [])}
     candidates += [w for w in CI_WORKFLOW_PRIORITY if w in present]
     for wf in candidates:
         runs = gh(
-            f"/repos/{owner}/{repo}/actions/workflows/{wf}/runs"
-            f"?branch={default_branch}&per_page=1",
+            f"/repos/{owner}/{repo}/actions/workflows/{wf}/runs?branch={default_branch}&per_page=1",
             token,
         )
         run_list = (runs or {}).get("workflow_runs") or []
@@ -92,12 +102,16 @@ def detect_ci_workflow(owner: str, repo: str, default_branch: str, token: str, o
     return None, None
 
 
-def ci_badge(owner: str, repo: str, default_branch: str, token: str, override: str | None) -> dict:
+def ci_badge(
+    owner: str, repo: str, default_branch: str, token: str, override: str | None
+) -> dict[str, Any]:
     _, run = detect_ci_workflow(owner, repo, default_branch, token, override)
     if not run:
         return {"schemaVersion": 1, "label": "CI", "message": "no runs", "color": "lightgrey"}
-    state = run.get("conclusion") or run.get("status") or "unknown"
-    msg = {"in_progress": "running", "queued": "queued"}.get(run.get("status"), state)
+    status = run.get("status")
+    state = str(run.get("conclusion") or status or "unknown")
+    in_flight_labels = {"in_progress": "running", "queued": "queued"}
+    msg = in_flight_labels.get(str(status), state) if status is not None else state
     return {
         "schemaVersion": 1,
         "label": "CI",
@@ -106,7 +120,7 @@ def ci_badge(owner: str, repo: str, default_branch: str, token: str, override: s
     }
 
 
-def version_badge(owner: str, repo: str, token: str) -> dict | None:
+def version_badge(owner: str, repo: str, token: str) -> dict[str, Any] | None:
     rel = gh(f"/repos/{owner}/{repo}/releases/latest", token)
     tag = rel.get("tag_name") if rel else None
     if not tag:
@@ -117,14 +131,14 @@ def version_badge(owner: str, repo: str, token: str) -> dict | None:
     return {"schemaVersion": 1, "label": "version", "message": tag, "color": "blue"}
 
 
-def license_badge(tier: str) -> dict | None:
+def license_badge(tier: str) -> dict[str, Any] | None:
     if tier == "none":
         return None
     label, color = LICENSE_BADGE.get(tier, LICENSE_BADGE["other"])
     return {"schemaVersion": 1, "label": "license", "message": label, "color": color}
 
 
-def write(path: str, payload: dict) -> None:
+def write(path: str, payload: dict[str, Any]) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(payload, fh, indent=2)
@@ -142,7 +156,9 @@ def main() -> int:
     if not token:
         print("WARNING: no GITHUB_TOKEN/GH_TOKEN; private repos will be skipped", file=sys.stderr)
 
-    manifest = json.load(open(args.manifest))
+    # scan-fix(ruff:SIM115): open() as a context manager, not a bare call.
+    with open(args.manifest) as fh:
+        manifest = json.load(fh)
     owner = manifest["owner"]
     repos = manifest["repos"]
     if args.only:
@@ -166,12 +182,20 @@ def main() -> int:
             errors += 1
             print(f"ERROR {name}: {exc}", file=sys.stderr)
             continue
-        index.append({
-            "name": name, "visibility": r["visibility"],
-            "ci": ci["message"], "version": (ver or {}).get("message", "-"),
-            "license": r["license"],
-        })
-        print(f"{name:42} ci={ci['message']:12} ver={(ver or {}).get('message','-'):10} lic={r['license']}", file=sys.stderr)
+        index.append(
+            {
+                "name": name,
+                "visibility": r["visibility"],
+                "ci": ci["message"],
+                "version": (ver or {}).get("message", "-"),
+                "license": r["license"],
+            }
+        )
+        version_message = (ver or {}).get("message", "-")
+        print(
+            f"{name:42} ci={ci['message']:12} ver={version_message:10} lic={r['license']}",
+            file=sys.stderr,
+        )
 
     write(os.path.join(args.out, "index.json"), {"repos": index})
     print(f"# wrote badges for {len(index)} repos ({errors} errors)", file=sys.stderr)
