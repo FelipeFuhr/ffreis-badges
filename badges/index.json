@@ -353,7 +353,7 @@
     {
       "name": "ffreis-platform-guardian",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "startup failure",
       "version": "-",
       "license": "MIT"
     },
