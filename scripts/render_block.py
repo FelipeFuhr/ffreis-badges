@@ -8,6 +8,7 @@ block re-runnably.
 
     python3 scripts/render_block.py <repo-name> [--default-branch main]
 """
+
 from __future__ import annotations
 
 import argparse

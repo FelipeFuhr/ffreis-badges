@@ -1,0 +1,60 @@
+name: CI
+
+# Lightweight-but-real onboarding: this repo is ~340 lines of stdlib-only
+# scheduling glue (no runtime deps, no mutation-testing infra — see AGENTS.md
+# for the reasoning). fmt/lint/test with a 75% coverage floor is the
+# right-sized gate; there is no coverage.yml (codecov) or mutation.yml here.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".github/workflows/ci.yml"
+  push:
+    branches: [main, master]
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".github/workflows/ci.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fmt:
+    uses: FelipeFuhr/ffreis-workflows-python/.github/workflows/python-fmt.yml@8405bfc6e887b6e1af634a6ed104538ab98d3baf # main (post-#98)
+    with:
+      working-directory: "."
+      source-dirs: "scripts tests"
+      uv-extras: ""
+      uv-groups: "dev"
+
+  lint:
+    needs: [fmt]
+    uses: FelipeFuhr/ffreis-workflows-python/.github/workflows/python-lint.yml@8405bfc6e887b6e1af634a6ed104538ab98d3baf # main (post-#98)
+    with:
+      working-directory: "."
+      source-dirs: "scripts tests"
+      mypy-dirs: "scripts tests"
+      uv-extras: ""
+      uv-groups: "dev"
+
+  test:
+    needs: [fmt]
+    uses: FelipeFuhr/ffreis-workflows-python/.github/workflows/python-test.yml@8405bfc6e887b6e1af634a6ed104538ab98d3baf # main (post-#98)
+    with:
+      working-directory: "."
+      test-dir: "tests"
+      uv-extras: ""
+      uv-groups: "dev"
+      coverage-min: 75
