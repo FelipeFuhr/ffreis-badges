@@ -136,7 +136,7 @@
     {
       "name": "ffreis-integration-hub",
       "visibility": "public",
-      "ci": "no runs",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
@@ -318,7 +318,7 @@
     {
       "name": "ffreis-platform-configctl",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
@@ -346,14 +346,14 @@
     {
       "name": "ffreis-platform-go-analyzers",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
     {
       "name": "ffreis-platform-guardian",
       "visibility": "public",
-      "ci": "startup failure",
+      "ci": "failure",
       "version": "-",
       "license": "MIT"
     },
@@ -374,7 +374,7 @@
     {
       "name": "ffreis-platform-orchestrator",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
@@ -479,7 +479,7 @@
     {
       "name": "ffreis-runner-comparison",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
