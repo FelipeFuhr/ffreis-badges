@@ -318,7 +318,7 @@
     {
       "name": "ffreis-platform-configctl",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
