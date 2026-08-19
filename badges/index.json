@@ -38,7 +38,7 @@
     {
       "name": "ffreis-badges",
       "visibility": "public",
-      "ci": "running",
+      "ci": "success",
       "version": "-",
       "license": "Proprietary"
     },
@@ -395,7 +395,7 @@
     {
       "name": "ffreis-platform-runner",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "MIT"
     },
@@ -486,7 +486,7 @@
     {
       "name": "ffreis-rust-onnx-model-serving",
       "visibility": "public",
-      "ci": "success",
+      "ci": "cancelled",
       "version": "v1.0.2",
       "license": "MIT"
     },
@@ -521,7 +521,7 @@
     {
       "name": "ffreis-stock-simulator-dashboard-go",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "Proprietary"
     },
@@ -598,7 +598,7 @@
     {
       "name": "ffreis-website-packer",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "none"
     },
