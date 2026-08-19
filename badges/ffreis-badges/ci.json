@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "CI",
-  "message": "success",
-  "color": "brightgreen"
+  "message": "running",
+  "color": "blue"
 }
