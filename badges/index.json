@@ -38,7 +38,7 @@
     {
       "name": "ffreis-badges",
       "visibility": "public",
-      "ci": "running",
+      "ci": "success",
       "version": "-",
       "license": "Proprietary"
     },
