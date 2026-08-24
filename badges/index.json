@@ -38,7 +38,7 @@
     {
       "name": "ffreis-badges",
       "visibility": "public",
-      "ci": "success",
+      "ci": "running",
       "version": "-",
       "license": "Proprietary"
     },
@@ -500,7 +500,7 @@
     {
       "name": "ffreis-siteops",
       "visibility": "public",
-      "ci": "success",
+      "ci": "failure",
       "version": "-",
       "license": "MIT"
     },
@@ -634,7 +634,7 @@
       "name": "ffreis-workflows-general",
       "visibility": "public",
       "ci": "no runs",
-      "version": "v2.0.1",
+      "version": "v2.0.2",
       "license": "Proprietary"
     },
     {
