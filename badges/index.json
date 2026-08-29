@@ -59,7 +59,7 @@
     {
       "name": "ffreis-claude-skills",
       "visibility": "public",
-      "ci": "failure",
+      "ci": "success",
       "version": "-",
       "license": "Proprietary"
     },
