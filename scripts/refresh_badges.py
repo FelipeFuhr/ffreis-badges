@@ -13,11 +13,24 @@ has `repo` scope so it can read private repos' Actions runs and releases.
 
 Each badge file is the shields.io endpoint schema:
     {"schemaVersion":1,"label":"...","message":"...","color":"..."}
+
+Opaque IDs (see badge_id.py / README.md "Opaque per-repo IDs"): manifest.json
+is name-keyed (it has to be — the GitHub API only understands owner/repo, not
+our own opaque IDs) but manifest.json is NOT committed to this public repo
+(see .gitignore + MIGRATION.md); it only ever exists locally or decoded from
+the BADGES_MANIFEST secret inside a CI run. The only PUBLIC, committed
+artifacts this script writes are the files under `badges/`, and those are
+keyed by opaque ID (plus, during the transition, legacy name-keyed copies —
+see MIGRATION.md). Each repo's ID is resolved by reading `.github/badge-id`
+straight out of THAT repo via the Contents API — self-provisioning a fresh
+one there with --provision-ids if it's missing and the token can write it.
 """
 
 from __future__ import annotations
 
 import argparse
+import base64
+import binascii
 import json
 import os
 import sys
@@ -25,6 +38,8 @@ import time
 import urllib.error
 import urllib.request
 from typing import Any
+
+import badge_id
 
 API = "https://api.github.com"
 
@@ -138,6 +153,72 @@ def license_badge(tier: str) -> dict[str, Any] | None:
     return {"schemaVersion": 1, "label": "license", "message": label, "color": color}
 
 
+def get_badge_id(owner: str, repo: str, token: str) -> str | None:
+    """Fetch & validate `repo`'s own opaque id via the Contents API.
+
+    None if the file is missing (404) or its content doesn't match
+    badge_id.ID_PATTERN — never trust an unvalidated value into a public
+    file path.
+    """
+    data = gh(f"/repos/{owner}/{repo}/contents/{badge_id.ID_FILE_RELPATH}", token)
+    if not data or "content" not in data:
+        return None
+    try:
+        raw = base64.b64decode(data["content"]).decode("utf-8", "replace").strip()
+    except (ValueError, binascii.Error):
+        return None
+    return raw if badge_id.ID_PATTERN.match(raw) else None
+
+
+def provision_badge_id(owner: str, repo: str, token: str) -> str | None:
+    """Create `.github/badge-id` in `repo` via the Contents API.
+
+    Requires Contents:write on THAT repo (BADGES_PAT is documented read-only
+    today — see README "Required secrets"). Returns the new id on success;
+    None if the token can't write there (403/404: no access; 422: the file
+    already exists, a benign race with another concurrent run or a human) —
+    the caller logs and skips that repo rather than inventing a workaround
+    that needs broader fleet-wide permissions.
+    """
+    new_id = badge_id.generate_id()
+    payload = json.dumps(
+        {
+            "message": "chore: provision opaque badge id",
+            "content": base64.b64encode((new_id + "\n").encode("utf-8")).decode("ascii"),
+        }
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        f"{API}/repos/{owner}/{repo}/contents/{badge_id.ID_FILE_RELPATH}",
+        data=payload,
+        method="PUT",
+    )
+    req.add_header("Accept", "application/vnd.github+json")
+    req.add_header("X-GitHub-Api-Version", "2022-11-28")
+    req.add_header("Content-Type", "application/json")
+    if token:
+        req.add_header("Authorization", f"Bearer {token}")
+    try:
+        with urllib.request.urlopen(req, timeout=30):
+            return new_id
+    except urllib.error.HTTPError as exc:
+        if exc.code in (403, 404, 422):
+            return None  # no write access on this repo, or someone else just created it
+        raise
+
+
+def resolve_badge_id(owner: str, repo: str, token: str, *, provision: bool) -> str | None:
+    """`repo`'s own opaque id, self-provisioning a fresh one if missing and
+    `provision` is set. `provision` defaults to False at the CLI so a local,
+    ad-hoc refresh (README's "read-only against GitHub" preview command)
+    never has the surprising side effect of writing to other repos; only the
+    scheduled poller (.github/workflows/refresh.yml) passes --provision-ids.
+    """
+    existing = get_badge_id(owner, repo, token)
+    if existing or not provision:
+        return existing
+    return provision_badge_id(owner, repo, token)
+
+
 def write(path: str, payload: dict[str, Any]) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:
@@ -150,6 +231,15 @@ def main() -> int:
     ap.add_argument("--manifest", default="manifest.json")
     ap.add_argument("--out", default="badges")
     ap.add_argument("--only", help="comma-separated repo names (pilot subset)")
+    ap.add_argument(
+        "--provision-ids",
+        action="store_true",
+        help=(
+            "self-provision .github/badge-id in repos that don't have one yet "
+            "(requires the token to have Contents:write there — see README). "
+            "Off by default so an ad-hoc local run stays read-only."
+        ),
+    )
     args = ap.parse_args()
 
     token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or ""
@@ -182,23 +272,51 @@ def main() -> int:
             errors += 1
             print(f"ERROR {name}: {exc}", file=sys.stderr)
             continue
-        index.append(
-            {
-                "name": name,
-                "visibility": r["visibility"],
-                "ci": ci["message"],
-                "version": (ver or {}).get("message", "-"),
-                "license": r["license"],
-            }
-        )
+
+        # Opaque-id-keyed copy (the only form that will be left standing once
+        # the fleet-wide README migration — tracked separately — is done; see
+        # MIGRATION.md). Resolution/provisioning failures are never fatal:
+        # this repo still gets its legacy name-keyed files above, it just
+        # stays out of the new badges/<id>/ tree and index.json until it has
+        # an id.
+        resolved_id = None
+        try:
+            resolved_id = resolve_badge_id(owner, name, token, provision=args.provision_ids)
+        except Exception as exc:
+            print(f"WARNING {name}: badge-id resolution failed: {exc}", file=sys.stderr)
+
+        if resolved_id:
+            id_outdir = os.path.join(args.out, resolved_id)
+            write(os.path.join(id_outdir, "ci.json"), ci)
+            if ver:
+                write(os.path.join(id_outdir, "version.json"), ver)
+            if lic:
+                write(os.path.join(id_outdir, "license.json"), lic)
+            index.append(
+                {
+                    "id": resolved_id,
+                    "ci": ci["message"],
+                    "version": (ver or {}).get("message", "-"),
+                    "license": r["license"],
+                }
+            )
+        else:
+            print(
+                f"WARNING {name}: no badge-id file and could not provision one "
+                "(no write access there yet, or --provision-ids wasn't passed) "
+                "— omitted from the id-keyed badges/index.json until it has one",
+                file=sys.stderr,
+            )
+
         version_message = (ver or {}).get("message", "-")
         print(
-            f"{name:42} ci={ci['message']:12} ver={version_message:10} lic={r['license']}",
+            f"{name:42} ci={ci['message']:12} ver={version_message:10} "
+            f"lic={r['license']:12} id={resolved_id or 'MISSING'}",
             file=sys.stderr,
         )
 
     write(os.path.join(args.out, "index.json"), {"repos": index})
-    print(f"# wrote badges for {len(index)} repos ({errors} errors)", file=sys.stderr)
+    print(f"# wrote badges for {len(repos) - errors} repos ({errors} errors)", file=sys.stderr)
     return 0
 
 

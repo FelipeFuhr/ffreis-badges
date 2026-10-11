@@ -7,3 +7,9 @@ __pycache__/
 .mypy_cache/
 .coverage
 htmlcov/
+
+# Name-keyed fleet roster (the poller's input). NOT committed — it names
+# every repo in the fleet, including which ones are private. Lives locally
+# (regenerate with scripts/gen_manifest.py) or, for the scheduled poller, is
+# decoded at CI runtime from the BADGES_MANIFEST secret. See MIGRATION.md.
+manifest.json
