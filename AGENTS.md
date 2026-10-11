@@ -5,17 +5,19 @@ repo fleet. Solves shields.io not being able to read private repos: an
 authenticated poller (`scripts/refresh_badges.py`) writes each repo's CI/
 version/license status here as shields.io endpoint JSON, so any repo — public
 or private — can embed a working badge pointing at this public raw JSON. Full
-design in `README.md`.
+design in `README.md`; the opaque-ID scheme (why, and the dual-write
+transition) is in `MIGRATION.md`.
 
 ## Structure
 
 ```
-scripts/gen_manifest.py      ← regenerates manifest.json (fleet roster + license tiers)
-scripts/refresh_badges.py    ← polls GitHub API, writes badges/<repo>/{ci,version,license}.json
-scripts/render_block.py      ← renders the curated <!-- ffreis-badges:start --> README block
-manifest.json                ← committed fleet roster (source of truth for the poller)
-badges/                      ← committed, generated shields.io endpoint JSON (do not hand-edit)
-tests/                       ← pytest suite covering the three scripts above
+scripts/badge_id.py          ← opaque per-repo ID: generate/read/write .github/badge-id
+scripts/gen_manifest.py      ← regenerates manifest.json (fleet roster + license tiers) — LOCAL ONLY, not committed
+scripts/refresh_badges.py    ← polls GitHub API, resolves/provisions each repo's id, writes badges/<id>/ (+ legacy badges/<name>/)
+scripts/render_block.py      ← renders the curated <!-- ffreis-badges:start --> README block, from a repo's own --repo-dir
+manifest.json                ← gitignored, name-keyed fleet roster (poller input) — see "Non-obvious facts"
+badges/                      ← committed, generated shields.io endpoint JSON (do not hand-edit); id-keyed + legacy name-keyed during the transition
+tests/                       ← pytest suite covering all four scripts above
 ```
 
 ## Judgment: right-sized CI, not full onboarding
@@ -56,12 +58,26 @@ gets meaningfully more complex).
   install the project itself.
 - **`scripts/*.py` are imported directly in tests** (not a package) —
   `tests/conftest.py` inserts `scripts/` onto `sys.path`.
-- **`manifest.json` and `badges/` are committed, generated artifacts.**
-  Regenerate `manifest.json` with `scripts/gen_manifest.py`, not by hand.
-- **Required secret for the real poller**: `BADGES_PAT` (fine-grained PAT,
+- **`manifest.json` is gitignored, NOT committed** — it names every repo in
+  the fleet, including which ones are private, so it can't live in this
+  public repo's tree (see MIGRATION.md). Regenerate it locally with
+  `scripts/gen_manifest.py` exactly as before; publish it to the poller via
+  the `BADGES_MANIFEST` GitHub Actions secret (`gh secret set BADGES_MANIFEST
+  < manifest.json`), never via a commit.
+- **`badges/` is a committed, generated artifact**, keyed by each repo's own
+  opaque `.github/badge-id` (plus, during the transition, a legacy
+  name-keyed copy per repo — see MIGRATION.md). Never hand-edit it.
+- **Required secrets for the real poller**: `BADGES_PAT` (fine-grained PAT,
   read access to Actions + Contents + Metadata on all repos, including
-  private). Falls back to `github.token`, which only sees this repo. This is
-  unrelated to `ci.yml`'s test suite, which mocks all network calls.
+  private — falls back to `github.token`, which only sees this repo) and
+  `BADGES_MANIFEST` (the name-keyed roster, decoded into `manifest.json` at
+  CI runtime, never committed). Self-provisioning a missing
+  `.github/badge-id` additionally needs Contents:**write** on the target
+  repo, which `BADGES_PAT` does not have today (flagged in MIGRATION.md as a
+  judgment call, not assumed/widened here) — until it's widened,
+  `--provision-ids` is a safe, logged no-op per repo rather than an error.
+  None of this is exercised by `ci.yml`'s test suite, which mocks all
+  network calls.
 
 ## Build, run, test
 

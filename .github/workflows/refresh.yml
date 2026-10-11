@@ -23,12 +23,32 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - name: Materialize the fleet manifest from its secret
+        env:
+          # The name-keyed roster (which repo is which, incl. visibility) is
+          # NOT committed here — it's the exact thing the opaque-id scheme
+          # exists to stop publishing. It's read-only input for this one job,
+          # decoded straight into the (gitignored) working file and never
+          # written back out. See README.md "Opaque per-repo IDs" + MIGRATION.md.
+          BADGES_MANIFEST: ${{ secrets.BADGES_MANIFEST }}
+        run: |
+          if [ -z "$BADGES_MANIFEST" ]; then
+            echo "::error::secrets.BADGES_MANIFEST is not set — refusing to run with an empty roster (that would silently drop every repo instead of refreshing it)."
+            exit 1
+          fi
+          printf '%s' "$BADGES_MANIFEST" > manifest.json
       - name: Refresh badge endpoints
         env:
           # PAT with read access to Actions + Contents + Metadata on all repos
           # (incl. private). Falls back to GITHUB_TOKEN, which only sees this repo.
+          #
+          # --provision-ids also needs Contents:WRITE on every fleet repo, to
+          # self-provision .github/badge-id where it's missing — BADGES_PAT is
+          # documented read-only today, so until its scope is widened this
+          # flag is a safe no-op per repo (logged, not fatal) rather than an
+          # error. See the "Required secrets" section of README.md.
           GITHUB_TOKEN: ${{ secrets.BADGES_PAT || github.token }}
-        run: python3 scripts/refresh_badges.py
+        run: python3 scripts/refresh_badges.py --provision-ids
       - name: Commit refreshed badges
         run: |
           git config user.name "github-actions[bot]"
